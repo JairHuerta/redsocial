@@ -1,0 +1,43 @@
+.navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0rem;
+    background: #e9b047 !important;
+    color: black !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 2.5rem !important;
+    padding: 0 0 0 0 !important;
+}
+
+.active {
+    border-bottom: 3px solid;
+    background: #e9b047;
+}
+
+.nav-link {
+    font-size: 1rem !important;
+    padding-top: 1.1rem !important;
+    color: #695601 !important;
+    /*padding-bottom: 1.1rem !important;*/
+}
+
+.nav-item:hover {
+    background: #e0c116 !important;
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 1rem !important;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.avatar-name {
+    margin-top: -0.3rem;
+}

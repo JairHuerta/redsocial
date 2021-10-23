@@ -1,0 +1,72 @@
+/** 
+*** GENERALES
+**/
+
+.section-header {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid white;
+}
+
+.section-header h1 {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.general-container {
+    margin-top: 115px;
+}
+
+.text-yellow {
+    color: goldenrod !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.text-black {
+    color: black !important;
+}
+
+.center {
+    display: flex !important;
+    justify-content: center;
+}
+
+.derecha {
+    display: flex !important;
+    justify-content: flex-end;
+}
+
+.border-danger {
+    border: 2px solid rgba(199, 21, 21, 0.103) !important;
+}
+
+.img-loading {
+    width: 5%;
+    display: block;
+    margin: auto;
+}
+
+
+/** fin GENERALES **/
+
+
+/** 
+*** HOME, LOGIN y REGISTER
+**/
+
+.jumbotron {
+    background-color: rgba(245, 172, 13, 0.1) !important;
+    text-align: center;
+}
+
+.display-4 {
+    font-weight: bold !important;
+    color: black;
+}
+
+
+/** fin HOME, LOGIN y REGISTER **/

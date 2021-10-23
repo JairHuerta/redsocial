@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-warning">
+        <ul class="nav ml-auto" *ngIf='identity'>
+                <a class="nav-link" [routerLink]="['/timeline']" [routerLinkActive]="['active']">
+                    <span class="fas fa-home"></span>
+                  </a>
+                <a class="nav-link" [routerLink]="['/gente']" [routerLinkActive]="['active']">
+                    <span class="fas fa-users"></span>
+                </a>
+                <a class="nav-link" [routerLink]="['/aparadores']" [routerLinkActive]="['active']">
+                   <span class="fas fa-building"></span>
+                </a>
+                
+              <!-- <a class="navbar-brand text-black" [routerLink]="['/home']">
+                  <img src="assets/images/logo-icon.png" height="42" width="150">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+               -->
+              <!-- <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/mensajes']">
+                      <span class="fas fa-envelope"></span>
+                          Mensajes
+              </a> -->
+        </ul>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="nav navbar-nav ml-auto" *ngIf='identity'>
+                    <div class="form-group has-search">   
+                      <input type="text" class="form-control" placeholder="¿Qué estás buscando?">
+                    </div>
+                <li class="nav-item dropdown waves-effect waves-dark">
+                    <a class="nav-link dropdown-toggle avatar-name" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <img class="avatar" src="{{ url + 'get-image-user/' + identity.image }}" *ngIf="identity && identity.image" alt="Card image" />
+                        <img class="avatar" src="assets/images/usuario.png" *ngIf="!identity.image" alt="Card image" /> {{identity.name}}
+                        <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu" data-toggle="collapse" data-target="#navbarResponsive">
+                        <a class="dropdown-item" [routerLink]="['/perfil', identity._id]">
+                            <span class="far fa-user-circle"></span> Mi perfil
+                        </a>
+                        <a class="dropdown-item" [routerLink]="['/mis-datos']">
+                            <span class="fas fa-clipboard-list"></span> Mis datos
+                        </a>
+                        <a class="dropdown-item" [routerLink]="['/']">
+                            <span class="fas fa-building"></span> Mis aparadores
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" (click)="logout()">
+                            <span class="fas fa-sign-out-alt"></span> Cerrar sesión
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <!-- <form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search">
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+			</form> -->
+            <ul class="nav navbar-nav ml-auto" *ngIf='!identity'>
+                <li class="nav-item" [routerLinkActive]="['active']">
+                    <a class="nav-link" [routerLink]="['/login']">
+                        <span class="fas fa-sign-in-alt"></span> Iniciar sesión
+                    </a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']">
+                    <a class="nav-link" [routerLink]="['/register']">
+                        <span class="fas fa-user-plus"></span> Regístrarse
+                    </a>
+                </li>
+            </ul>
+        </div>
+</nav>
