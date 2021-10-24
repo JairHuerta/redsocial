@@ -1,19 +1,6 @@
-
 <div class="row">
-        <img class='uno' src='../../../assets/images/background/fondo1.png' alt />
-    <div id="timeline" class="container col-lg-6">
+    <div id="timeline" class="general-container col-lg-8 ">
         <div class="section-header timeline-header">
-                <div>
-                <p class="text-center" style=" font-weight: bold; font-size:24px; margin-top: 5px;" >Tlaxcala</p>
-                  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                         <a class="nav-link text-dark" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Alrededor</a>
-                           </li>
-                           <li class="nav-item">
-                             <a class="nav-link text-dark" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Destacados</a>
-                           </li>
-                          </ul>
-                 </div>
             <div class="timeline-header-text">
                 <h1>{{title}}</h1>
             </div>
@@ -29,14 +16,11 @@
             <img class="img-loading" src="../../assets/images/load2.gif" alt="Loading image" />
         </div>
 
-        <app-sidebar (publicationSended)="refreshPublications()"></app-sidebar>
-        <br>
-
         <div *ngIf="publications && !loading; then hay; else nohay"></div>
 
         <ng-template #hay>
             <div *ngFor="let publication of publications">
-                <div class="container col-lg-12" [ngClass]='{"publication-my" : publication.user._id == identity._id}'>
+                <div class="publication-card col-lg-12" [ngClass]='{"publication-my" : publication.user._id == identity._id}'>
                     <div class="card-header">
                         <div class="row">
                             <div class="col-lg-11">
@@ -46,7 +30,7 @@
                                 </div>
                                 <div class="publication-user">
                                     <a [routerLink]="['/perfil', publication.user._id]">
-                                        <h3 class="text-black">{{publication.user.name + ' ' +publication.user.surname}}</h3>
+                                        <h3>{{publication.user.name + ' ' +publication.user.surname}}</h3>
                                     </a>
                                     <small>{{ (publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}</small>
                                 </div>
@@ -87,34 +71,14 @@
                             <div class="card-body col-lg-8">
                                 <h5 class="publication-text">{{publication.text}}</h5>
                             </div>
-                            <div class="col-lg-8">
-                                <div class="text-center">
-                                    <img class="rounded foto-publicacion" src="{{ url + 'get-image-pub/' + publication.file }}" alt="Card image" />
-                                    <!-- (click)="showThisImage(publication._id)"  -->
-                                </div>
+                            <div class="col-lg-4">
+                                <img class="card-img-small" src="{{ url + 'get-image-pub/' + publication.file }}" alt="Card image" (click)="showThisImage(publication._id)" />
                             </div>
                         </div>
-                        
+
                         <div class="card-body" *ngIf=" !publication.file || showImage == publication._id">
                             <h5 class="publication-text">{{publication.text}}</h5>
-                            <img class="foto-publicacion" src="{{ url + 'get-image-pub/' + publication.file }}" alt="Card image"  *ngIf="showImage == publication._id"  />
-                            <!--(click)="hideThisImage(publication._id)" -->
-                        </div>
-                        <!--Sección para el contador de likes por publicación-->
-                        <!-- BOTÓN PARA DAR LIKE A PUBLICACIÓN -->
-                        <div class="card-body col-lg-2">
-                            <button class="btn btn-light btn-sm" *ngIf="publications.indexOf(publication._id) < 0"
-                             (click)="likePublication(publication._id)">
-                                <i class="fas fa-thumbs-up"></i>
-                                Me gusta
-                            </button>
-                            <br>
-                            <!-- BOTÓN PARA QUITAR LIKE A PUBLICACIÓN -->
-                            <button class="btn btn-danger btn-sm" *ngIf="publications.indexOf(publication._id) >= 0"
-                                (click)="dislikePublication(publication._id)">
-                                <i class="fas fa-thumbs-down"></i>
-                                No me gusta
-                            </button>
+                            <img class="card-img-normal" src="{{ url + 'get-image-pub/' + publication.file }}" alt="Card image" *ngIf="showImage == publication._id" (click)="hideThisImage(publication._id)" />
                         </div>
                     </div>
 
@@ -130,7 +94,7 @@
         <ng-template #nohay>
             <div class="publication-card border-danger col-lg-12">
                 <div class="card-header">
-                    <h4 class="publication-user">No hay ninguna publicación</h4>
+                    <h4 class="publication-user">Tu TIMELINE está vacío</h4>
                 </div>
                 <div class="card-body">
                     <h5>Parece que la gente a la que sigues no ha publicado nada todavía.</h5>
@@ -139,5 +103,8 @@
             </div>
         </ng-template>
     </div>
-</div>
 
+    <div class="general-container col-lg-4">
+        <app-sidebar (publicationSended)="refreshPublications()"></app-sidebar>
+    </div>
+</div>

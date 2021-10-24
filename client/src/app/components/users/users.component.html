@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="general-container col-lg-12 ">
+	<div class="general-container col-lg-8 ">
 		<div class="section-header">
 			<h1>{{title}}</h1>
 		</div>
@@ -12,7 +12,7 @@
 		<div *ngIf="users && !loading; then hay; else nohay"></div>
 		<ng-template #hay>
 			<div *ngFor="let user of users">
-				<div class="card bg-light col-lg-12" *ngIf=" user._id != identity._id ">
+				<div class="card bg-primary col-lg-12" *ngIf=" user._id != identity._id ">
 					<div class="row">
 						<div class="col-lg-3">
 							<img class="card-img" src="{{ url + 'get-image-user/' + user.image }}" *ngIf="user.image" alt="Card image" />
@@ -21,14 +21,14 @@
 
 						<div class="card-body col-lg-7">
 							<a [routerLink]="['/perfil', user._id]" class="card-link">
-								<h4 class="user-name text-black">{{user.name +' '+ user.surname}}</h4>
+								<h4 class="user-name text-yellow">{{user.name +' '+ user.surname}}</h4>
 							</a>
 							<h6 class="user-nick">{{user.nick}}</h6>
 							<br>
 							<p class="lead text-white"><em>{{user.status}}</em></p>
 						</div>
 
-						<!-- SECCIÓN DE FOLLOWS  -->
+						<!-- SECCIÓN FOLLOWS -->
 						<div class="card-body col-lg-2">
 							<div class="follow-buttons">
 								<button class="btn btn-success btn-sm" *ngIf=" follows.indexOf(user._id) < 0"
@@ -43,7 +43,7 @@
 							</button>
 						</div>
 					</div>
-					<!-- FIN SECCIÓN DE FOLLOWS -->
+					<!-- FIN SECCIÓN FOLLOWS -->
 				</div>
 			</div>
 		</div>
@@ -73,8 +73,8 @@
 		</div>
 	</ng-template>
 </div>
-<!-- 
+
 <div class="general-container col-lg-4">
 	<app-sidebar></app-sidebar>
-</div> -->
+</div>
 </div>

@@ -7,9 +7,8 @@
 </div>
 
 <div *ngIf="publications; then hay; else nohay"></div>
+
 <ng-template #hay>
-		<app-sidebar></app-sidebar>
-		<br>
 	<div *ngFor="let publication of publications">
 		<div class="publication-card col-lg-12" [ngClass]='{"publication-my" : publication.user._id == identity._id}' >
 			<div class="card-header">
@@ -20,7 +19,7 @@
 							<img src="assets/images/usuario.png" *ngIf="!publication.user.image" alt="Card image" />
 						</div>
 						<div class="publication-user">
-							<h3 class="text-black">{{publication.user.name + ' ' +publication.user.surname}}</h3>
+							<h3>{{publication.user.name + ' ' +publication.user.surname}}</h3>
 							<small>{{ (publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}</small>
 						</div>
 					</div>

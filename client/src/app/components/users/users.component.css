@@ -3,7 +3,7 @@
 }
 
 .card-img {
-    width: 150px;
+    width: 100%;
     display: block;
     height: 150px;
     margin-bottom: 5%;
@@ -20,7 +20,7 @@
 }
 
 .user-name {
-    color: orangered;
+    color: red;
 }
 
 .user-nick {

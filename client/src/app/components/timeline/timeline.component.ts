@@ -4,8 +4,6 @@ import { Publication } from '../../models/publication';
 import { PublicationService } from '../../services/publication.service';
 import { UserService } from '../../services/user.service';
 import { GLOBAL } from '../../services/global';
-import { LikeService } from '../../services/like.service';
-import { Like } from '../../models/like';
 
 /* jQUERY */
 declare var jQuery:any;
@@ -15,13 +13,13 @@ declare var $:any;
 	selector   : 'app-timeline',
 	templateUrl: './timeline.component.html',
 	styleUrls  : ['./timeline.component.css'],
-	providers  : [UserService, PublicationService, LikeService]
+	providers  : [UserService, PublicationService]
 })
 export class TimelineComponent implements OnInit {
 	public title       : string;
 	public url         : string;
 	public publications: Publication[];
-	public loading     : boolean;
+	public loading     : boolean;	
 	public identity;
 	public token;
 	public status;
@@ -31,17 +29,14 @@ export class TimelineComponent implements OnInit {
 	public items_per_page;
 	public noMore;
 	public showImage;
-	public like;
-	public stats;
- 
+
 	constructor(
 		private _route             : ActivatedRoute,
 		private _router            : Router,
 		private _userService       : UserService,
-		private _publicationService: PublicationService,
-		private _likeService       : LikeService
+		private _publicationService: PublicationService
 		) { 
-		this.title     = 'Lo más reciente';
+		this.title     = 'Timeline';
 		this.identity  = _userService.getIdentity();
 		this.token     = _userService.getToken();
 		this.url       = GLOBAL.url;
@@ -140,72 +135,6 @@ export class TimelineComponent implements OnInit {
 
 	hideThisImage(id){
 		this.showImage = 0;
-	}
-
-
-	likePublication(publication_id){
-		var like = new Like('', this.identity._id, publication_id);
-
-		this._likeService.addLikes(this.token, like).subscribe(
-			response => {
-				if(!response.publication){
-					this.status = 'error';
-					console.log(like);
-				}else{
-					this.status = 'success';
-					console.log(publication_id);
-					this.like.push(publication_id);
-				}
-			},
-			error => {
-				var errorMessage = <any>error;
-				console.log(errorMessage);
-
-				if(errorMessage != null){
-					this.status = 'error';
-				}
-			}
-		);
-	}
-
-	dislikePublication(publication_id){
-		this._likeService.deleteLikes(this.token, publication_id).subscribe(
-			response => {
-				var search = this.publications.indexOf(publication_id);
-				if(search != -1){
-					this.publications.splice(search, 1);
-				}
-			},
-			error => {
-				var errorMessage = <any>error;
-				console.log(errorMessage);
-
-				if(errorMessage != null){
-					this.status = 'error';
-				}
-			}
-		);
-	}
-
-	getCounters(publication_id){
-		this._likeService.getCountLikes(publication_id).subscribe(
-			response => {
-				if(response){
-					this.stats = response;
-					if(this.identity._id == publication_id) localStorage.setItem('stats', JSON.stringify(this.stats));
-					/*if(this.identity._id == id){
-						localStorage.setItem('stats', JSON.stringify(this.stats));
-					}*/
-					this.status = 'success';
-				}else{
-					this.status = 'error';
-				}
-			},
-			error => {
-				var errorMessage = <any>error;
-				console.log(errorMessage);
-			}
-		);
 	}
 
 }

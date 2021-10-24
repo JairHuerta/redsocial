@@ -12,24 +12,12 @@
 
 .publication-card {
     margin-bottom: 20px;
-    background-color: rgba(252, 252, 252, 0.904) !important;
+    background-color: rgba(245, 172, 13, 0.1) !important;
 }
 
 .publication-card .card-header {
-    background-color: rgb(240, 240, 240) !important;
+    background-color: rgba(245, 172, 13, 0.1) !important;
 }
-
-.uno {
-    -o-object-fit: cover;
-     object-fit: cover;
- 
-   margin: auto;
-   width: 1400px;
-   height: 300px;
-   margin-left: -105px;
-   margin-right: -105px;
-   
-   }
 
 .card-img-normal {
     width: 100%;
@@ -37,11 +25,6 @@
     margin-top: 0.8rem;
     border-radius: 10px;
     cursor: pointer;
-}
-
-.foto-publicacion{
-    width:480px;
-    height:250px;
 }
 
 .card-img-small {
@@ -76,7 +59,7 @@
 }
 
 .publication-user {
-    color: rgba(95, 2, 99, 0.822);
+    color: goldenrod;
     display: block;
 }
 
@@ -89,9 +72,7 @@
 }
 
 .publication-my {
-    border: 1px solid rgba(211, 200, 45, 0.247);
-    border-radius: 10px;
-    box-shadow: 0px 7px 4px 0px rgba(179, 170, 91, 0.767);
+    border: 2px solid #593196;
 }
 
 .button-trash {

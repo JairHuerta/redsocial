@@ -9,9 +9,7 @@ var app = express();
 var user_routes = require('./routes/user');
 var follow_routes = require('./routes/follow');
 var publication_routes = require('./routes/publication');
-var likes_routes = require('./routes/like');
 var message_routes = require('./routes/message');
-var aparador_routes = require('./routes/aparador');
 
 
 /****	Middlewares 	***/ 
@@ -35,9 +33,7 @@ app.use((req, res, next) => {
 app.use('/api', user_routes);
 app.use('/api', follow_routes);
 app.use('/api', publication_routes);
-app.use('/api', likes_routes);
 app.use('/api', message_routes);
-app.use('/api', aparador_routes);
 
 
 /* Al principio lo pusimos así:

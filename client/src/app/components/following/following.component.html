@@ -8,7 +8,7 @@
 		<div *ngIf="following; then hay; else nohay"></div>
 		<ng-template #hay>
 			<div *ngFor="let follow of following">
-				<div class="card bg-light col-lg-12" >
+				<div class="card bg-primary col-lg-12" >
 					<div class="row">
 						<div class="col-lg-3">
 							<img class="card-img" src="{{ url + 'get-image-user/' + follow.followed.image }}" *ngIf="follow.followed.image" alt="Card image" />
@@ -67,7 +67,7 @@
 		<!-- FIN PAGINACIÓN -->
 	</ng-template>
 	<ng-template #nohay>
-		<div class="card bg-light col-lg-12">
+		<div class="card bg-primary border-danger col-lg-12">
 			<div class="card-header"><h4 class="user-name text-yellow">No hay seguimientos!!!</h4></div>
 			<div class="card-body text-white">
 				<h5>Parece que este usuario no sigue a nadie</h5>

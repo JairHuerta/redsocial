@@ -1,33 +1,37 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-warning">
-        <ul class="nav ml-auto" *ngIf='identity'>
-                <a class="nav-link" [routerLink]="['/timeline']" [routerLinkActive]="['active']">
-                    <span class="fas fa-home"></span>
-                  </a>
-                <a class="nav-link" [routerLink]="['/gente']" [routerLinkActive]="['active']">
-                    <span class="fas fa-users"></span>
-                </a>
-                <a class="nav-link" [routerLink]="['/aparadores']" [routerLinkActive]="['active']">
-                   <span class="fas fa-building"></span>
-                </a>
-                
-              <!-- <a class="navbar-brand text-black" [routerLink]="['/home']">
-                  <img src="assets/images/logo-icon.png" height="42" width="150">
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-               -->
-              <!-- <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/mensajes']">
-                      <span class="fas fa-envelope"></span>
-                          Mensajes
-              </a> -->
-        </ul>
+    <div class="container">
+        <a class="navbar-brand text-black" [routerLink]="['/home']">
+            <img src="assets/images/logo-icon.png" height="42" width="150">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto" *ngIf='identity'>
-                    <div class="form-group has-search">   
-                      <input type="text" class="form-control" placeholder="¿Qué estás buscando?">
-                    </div>
-                <li class="nav-item dropdown waves-effect waves-dark">
+                <li class="nav-item" [routerLinkActive]="['active']" data-toggle="collapse" data-target="#navbarResponsive">
+                    <a class="nav-link" [routerLink]="['/home']">
+                        <span class="fas fa-home"></span> Inicio
+                    </a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" data-toggle="collapse" data-target="#navbarResponsive">
+                    <a class="nav-link" [routerLink]="['/gente']">
+                        <span class="fas fa-building"></span> Aparadores
+                    </a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" data-toggle="collapse" data-target="#navbarResponsive">
+                    <a class="nav-link" [routerLink]="['/timeline']">
+                        <span class="fas fa-columns"></span> Timeline
+                    </a>
+                </li>
+                <!-- <li class="nav-item" [routerLinkActive]="['active']" data-toggle="collapse" data-target="#navbarResponsive">
+					<a class="nav-link" [routerLink]="['/mensajes']">
+						<span class="fas fa-envelope"></span>
+						Mensajes
+					</a>
+				</li> -->
+
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle avatar-name" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <img class="avatar" src="{{ url + 'get-image-user/' + identity.image }}" *ngIf="identity && identity.image" alt="Card image" />
                         <img class="avatar" src="assets/images/usuario.png" *ngIf="!identity.image" alt="Card image" /> {{identity.name}}
@@ -40,9 +44,6 @@
                         </a>
                         <a class="dropdown-item" [routerLink]="['/mis-datos']">
                             <span class="fas fa-clipboard-list"></span> Mis datos
-                        </a>
-                        <a class="dropdown-item" [routerLink]="['/']">
-                            <span class="fas fa-building"></span> Mis aparadores
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" (click)="logout()">
@@ -68,4 +69,5 @@
                 </li>
             </ul>
         </div>
+    </div>
 </nav>

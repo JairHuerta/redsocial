@@ -1,12 +1,10 @@
 .publication-card {
     margin-bottom: 20px;
-    background-color: rgba(248, 248, 246, 0.973) !important;
-    border-radius: 10px;
-    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.2) !important;
+    background-color: rgba(245, 172, 13, 0.1) !important;
 }
 
 .publication-card .card-header {
-    background-color: rgba(247, 244, 235, 0.568) !important;
+    background-color: rgba(199, 164, 68, 0.568) !important;
 }
 
 .card-header {
@@ -44,7 +42,7 @@
 }
 
 .publication-user {
-    color: orangered;
+    color: goldenrod;
     display: block;
 }
 
@@ -57,11 +55,9 @@
 }
 
 .publication-my {
-    border: 1px;
+    border: 2px;
     border-color: grey;
     border-style: solid;
-    box-shadow: 2px 0px 2px 2px rgba(247, 151, 7, 0.2);
-    
 }
 
 .button-trash {
@@ -79,101 +75,4 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 250px;
-}
-
-.nav-link.active{
-    color:#E5A145; font-weight: bold; font-size:16px; margin-top: -15px; background: #fff;
-}
-  
-.nav-link {
-  color:#000;
-  font-weight: bold;
-  font-size:16px;
-  margin-top: -15px;
-}
-
-.publicacion{
-  background:#F5F5F5;
-  width: 423px;
-}
-
-.foto-publicacion{
-width:348px;
-height:201px;
-margin-left: -20px;
-}
-
-.nombre-aparador{
-margin-left:-55px;
-font-size:14px;
-font-weight:bold;
-width:160px;
-color:#000;
-}
-
-.distancia{
-font-size:12px;
-color:#E5A145;
-margin-left:-55px;
-margin-top: -20px;
-}
-
-.uno {
--o-object-fit: cover;
-object-fit: cover;
-margin: auto;
-width:100vw;
-height: 269px;
-}
-
-@media screen and (max-width: 375px) {
-
-.publicacion{
-background:#F5F5F5;
-width: 223px;
-}
-
-.foto-publicacion{
-width:258px;
-height:150px;
-}
-
-.nombre-aparador{
-margin-left:-20px;
-font-size:12px;
-font-weight:bold;
-width:160px;
-color:#000;
-}
-
-.distancia{
-font-size:12px;
-color:#E5A145;
-margin-left:-20px;
-margin-top: -15px;
-}
-  
-.btn-movil{
-width: 90px;
-font-size:11px;
-}
-
-.btn-movil-margin{
-margin-left:-25px;
-}
-}
-
-hr.style4 {
-height: 1px;
-border: 0;
-box-shadow: 0 10px 10px -10px #e4e4e4 inset;
-margin-top: 2px;
-}
-
-.azul {
-color:blue;
-}
-
-.verde {
-color:green;
 }
